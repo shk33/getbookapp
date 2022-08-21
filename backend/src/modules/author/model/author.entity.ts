@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { AuthorData } from '.';
+import { Book } from '../../book/model/book.entity';
 
 @Entity({ name: 'authors' })
 export class Author {
@@ -12,12 +13,15 @@ export class Author {
     @Column({ name: 'name', length: Author.NAME_LENGTH })
     public name: string;
 
+    @OneToMany(() => Book, (book) => book.author)
+    books: Book[]
+
     public buildData(): AuthorData {
 
         return {
             id: this.id,
             name: this.name,
+            books: this.books || [],
         };
     }
-
 }

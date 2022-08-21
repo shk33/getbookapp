@@ -16,6 +16,10 @@ export class AuthorService {
         return this.authorRepository.find();
     }
 
+    public async findWithBooks(): Promise<Author[]> {
+        return this.authorRepository.find({ relations: ['books'] });
+    }
+
     public async create(input: AuthorInput): Promise<Author> {
 
         const author = new Author();

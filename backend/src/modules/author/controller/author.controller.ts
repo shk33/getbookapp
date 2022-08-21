@@ -21,7 +21,7 @@ export class AuthorController {
     @ApiResponse({ status: HttpStatus.OK, isArray: true, type: AuthorData })
     public async find(): Promise<AuthorData[]> {
 
-        const authors = await this.authorService.find();
+        const authors = await this.authorService.findWithBooks();
 
         return authors.map(author => author.buildData());
     }
@@ -33,6 +33,7 @@ export class AuthorController {
 
         const author = await this.authorService.create(input);
         this.logger.info(`Created new author with ID ${author.id}`);
+        this.authorService.find
 
         return author.buildData();
     }

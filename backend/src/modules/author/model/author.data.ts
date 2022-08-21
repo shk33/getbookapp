@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Book } from '../../book/model/book.entity';
 
 export class AuthorData {
 
@@ -7,5 +8,8 @@ export class AuthorData {
 
     @ApiProperty({ description: 'Author name', example: 'John' })
     public readonly name: string;
+
+    @ApiProperty({ description: 'Author´/s books', example: '[]' })
+    public readonly books: Book[];
 
 }
