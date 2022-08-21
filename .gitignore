@@ -1,5 +1,6 @@
 # dependencies
 /backend/node_modules
+/frontend/node_modules
 
 # IDE
 /.idea
@@ -8,9 +9,7 @@
 
 # misc
 /backend/node_modules/npm-debug.log
-
-# example
-/backend/node_modules/quick-start
+/frontend/node_modules/npm-debug.log
 
 # tests
 /backend/node_modules/test
@@ -22,3 +21,42 @@
 
 # environment
 /backend/node_modules/.env
+
+
+/frontend//node_modules
+/frontend/.pnp
+/frontend/.pnp.js
+
+# testing
+/frontend/coverage
+
+# cypress
+/frontend/cypress/screenshots
+/frontend/cypress/videos
+
+# next.js
+/frontend/.next
+/frontend/out
+
+# production
+/frontend/build
+
+# misc
+/frontend/.DS_Store
+/frontend/*.pem
+/frontend/Thumbs.db
+
+# debug
+/frontend/npm-debug.log*
+/frontend/pnpm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+
+# dotenv local files
+/frontend/.env*.local
+
+# local folder
+/frontend/local
+/frontend/
+# vercel
+/frontend/.vercel

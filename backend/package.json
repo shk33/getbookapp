@@ -1,9 +1,6 @@
 {
-  "name": "nest-template",
+  "name": "library-app-backend",
   "version": "0.1.0",
-  "description": "NestJS API project template crafted for Docker environments",
-  "author": "Saluki",
-  "license": "MIT",
   "private": true,
   "engines": {
     "node": ">=14.0.0"
