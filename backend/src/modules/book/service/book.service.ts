@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { Book, BookInput } from '../model';
+import { Author } from '../../author/model/author.entity';
 
 @Injectable()
 export class BookService {
@@ -16,13 +17,15 @@ export class BookService {
         return this.bookRepository.find();
     }
 
-    public async create(input: BookInput): Promise<Book> {
+    public async create(input: BookInput, author: Author): Promise<Book> {
+        const newBook = await this.bookRepository.create({
+            ...input,
+            author,
+        });
 
-        const author = new Book();
-
-        author.name = input.name;
-
-        return this.bookRepository.save(author);
+        await this.bookRepository.save(newBook);
+        
+        return newBook;
     }
 
 }

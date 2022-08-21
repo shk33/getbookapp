@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Post, BadRequestException } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { LoggerService } from '../../common';
@@ -6,6 +6,7 @@ import { LoggerService } from '../../common';
 import { BookPipe } from '../flow';
 import { BookData, BookInput } from '../model';
 import { BookService } from '../service';
+import { AuthorService } from '../../author/service/';
 
 @Controller('books')
 @ApiTags('book')
@@ -14,7 +15,8 @@ export class BookController {
 
     public constructor(
         private readonly logger: LoggerService,
-        private readonly bookService: BookService
+        private readonly bookService: BookService,
+        private readonly authorService: AuthorService
     ) { }
 
     @Get()
@@ -31,7 +33,14 @@ export class BookController {
     @ApiResponse({ status: HttpStatus.CREATED, type: BookData })
     public async create(@Body(BookPipe) input: BookInput): Promise<BookData> {
 
-        const book = await this.bookService.create(input);
+        const authorId = input.authorId;
+        const author = await this.authorService.findById(authorId);
+
+        if(!author){
+            throw new BadRequestException('Invalid authorId');
+        }
+
+        const book = await this.bookService.create(input, author);
         this.logger.info(`Created new book with ID ${book.id}`);
 
         return book.buildData();

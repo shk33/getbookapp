@@ -19,6 +19,6 @@ import { AuthorService } from './service';
     controllers: [
         AuthorController
     ],
-    exports: []
+    exports: [AuthorService]
 })
 export class AuthorModule { }

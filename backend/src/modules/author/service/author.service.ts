@@ -16,6 +16,10 @@ export class AuthorService {
         return this.authorRepository.find();
     }
 
+    public async findById(id: number): Promise<Author | undefined> {
+        return this.authorRepository.findOne({ id });
+    }
+
     public async findWithBooks(): Promise<Author[]> {
         return this.authorRepository.find({ relations: ['books'] });
     }

@@ -33,7 +33,6 @@ export class AuthorController {
 
         const author = await this.authorService.create(input);
         this.logger.info(`Created new author with ID ${author.id}`);
-        this.authorService.find
 
         return author.buildData();
     }

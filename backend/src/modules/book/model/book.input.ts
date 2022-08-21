@@ -7,4 +7,7 @@ export class BookInput {
 
     @ApiProperty()
     public readonly description: string;
+
+    @ApiProperty()
+    public readonly authorId: number;
 }
