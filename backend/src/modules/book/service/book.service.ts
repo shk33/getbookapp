@@ -14,7 +14,7 @@ export class BookService {
     ) { }
 
     public async find(): Promise<Book[]> {
-        return this.bookRepository.find();
+        return this.bookRepository.find({ relations: ['author'] });
     }
 
     public async create(input: BookInput, author: Author): Promise<Book> {
@@ -24,7 +24,7 @@ export class BookService {
         });
 
         await this.bookRepository.save(newBook);
-        
+
         return newBook;
     }
 
