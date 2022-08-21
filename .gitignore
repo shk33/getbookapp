@@ -1,0 +1,24 @@
+# dependencies
+/backend/node_modules
+
+# IDE
+/.idea
+/.awcache
+/.vscode
+
+# misc
+/backend/node_modules/npm-debug.log
+
+# example
+/backend/node_modules/quick-start
+
+# tests
+/backend/node_modules/test
+/backend/node_modules/coverage
+/backend/node_modules/.nyc_output
+
+# dist
+/backend/node_modules/dist
+
+# environment
+/backend/node_modules/.env
