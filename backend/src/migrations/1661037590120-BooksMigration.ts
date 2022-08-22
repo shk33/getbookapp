@@ -23,6 +23,7 @@ export class BooksMigration1661037590120 implements MigrationInterface {
                 {
                     name: 'description',
                     type: 'text',
+                    isNullable: true,
                 },
                 {
                     name: 'authorId',
