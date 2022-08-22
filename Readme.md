@@ -29,6 +29,8 @@ Now create the database, for your convinience, there is a script that create a p
 npm run start:dev:db
 ```
 
+**Note: If you get an error about Port 5432 in used. Make sure to stop any instance of postgresql running locally and try it again.**
+
 Once you have created the database, its time to run the migrations and seed data
 
 ```
