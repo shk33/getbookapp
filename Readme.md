@@ -73,6 +73,7 @@ With the backend up and runnning you can start the Frontend App
 
 ```
 cd frontend
+npm install
 npm run dev
 ```
 
