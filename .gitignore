@@ -57,6 +57,6 @@
 
 # local folder
 /frontend/local
-/frontend/
+
 # vercel
 /frontend/.vercel
